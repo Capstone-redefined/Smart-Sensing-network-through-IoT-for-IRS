@@ -1,11 +1,10 @@
+link for people counter using opencv:
+https://www.pyimagesearch.com/2018/08/13/opencv-people-counter/
+
 link for example project of raspberry pi with  pi camera for as a counter: 
 https://circuitdigest.com/microcontroller-projects/crowd-size-estimation-using-opencv-and-raspberry-pi
 
-link to setup pi camera:
-https://projects.raspberrypi.org/en/projects/getting-started-with-picamera
+link for overview of centroid tracking algorithm:
+https://medium.com/secure-and-private-ai-writing-challenge/creating-a-direction-sensitive-people-counter-with-opencv-and-mobilenetssd-454627fe3c84
 
-link to test pi camera: 
-https://www.raspberrypi.org/documentation/configuration/camera.md
 
-link To test pi camera:
-https://www.dummies.com/computers/raspberry-pi/test-raspberry-pi-camera-module/
