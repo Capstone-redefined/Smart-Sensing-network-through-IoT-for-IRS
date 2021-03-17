@@ -7,4 +7,5 @@ https://circuitdigest.com/microcontroller-projects/crowd-size-estimation-using-o
 link for overview of centroid tracking algorithm:
 https://medium.com/secure-and-private-ai-writing-challenge/creating-a-direction-sensitive-people-counter-with-opencv-and-mobilenetssd-454627fe3c84
 
-
+link for similar github project using opencv:
+https://github.com/narayananramu/opencv-people-counter
