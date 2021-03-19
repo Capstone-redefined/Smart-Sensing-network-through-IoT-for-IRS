@@ -1,0 +1,10 @@
+Encapsulating the hardware :
+
+Big red box enclosure :
+https://elmwoodelectronics.ca/products/11366
+
+Perma board
+https://elmwoodelectronics.ca/products/adafruit-perma-proto-half-sized-breadboard-pcb-3-pack
+
+Screw and stand-off set
+https://elmwoodelectronics.ca/products/black-nylon-screw-and-stand-off-set-m2_5-thread
