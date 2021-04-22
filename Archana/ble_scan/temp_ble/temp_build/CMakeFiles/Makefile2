@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/ble_scan/temp_ble
+CMAKE_SOURCE_DIR = /home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/ble_scan/temp_ble/temp_build
+CMAKE_BINARY_DIR = /home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/temp_build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/temp_ble_scan.dir/clean
 CMakeFiles/temp_ble_scan.dir/all:
 	$(MAKE) -f CMakeFiles/temp_ble_scan.dir/build.make CMakeFiles/temp_ble_scan.dir/depend
 	$(MAKE) -f CMakeFiles/temp_ble_scan.dir/build.make CMakeFiles/temp_ble_scan.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/ble_scan/temp_ble/temp_build/CMakeFiles --progress-num=1,2 "Built target temp_ble_scan"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/temp_build/CMakeFiles --progress-num=1,2 "Built target temp_ble_scan"
 .PHONY : CMakeFiles/temp_ble_scan.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/temp_ble_scan.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/ble_scan/temp_ble/temp_build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/temp_build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/temp_ble_scan.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/ble_scan/temp_ble/temp_build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/temp_build/CMakeFiles 0
 .PHONY : CMakeFiles/temp_ble_scan.dir/rule
 
 # Convenience name for target.

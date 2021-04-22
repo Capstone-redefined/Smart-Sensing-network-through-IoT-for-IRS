@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/gattlib_test/examples/ble_scan
+# Install script for directory: /home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pi/gattlib_test/examples/ble_scan/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/ble_scan/temp_ble/temp_ble_scan.c" "/home/pi/ble_scan/temp_ble/temp_build/CMakeFiles/temp_ble_scan.dir/temp_ble_scan.c.o"
+  "/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/temp_ble_scan.c" "/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/temp_build/CMakeFiles/temp_ble_scan.dir/temp_ble_scan.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

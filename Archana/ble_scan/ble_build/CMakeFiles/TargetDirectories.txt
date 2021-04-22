@@ -1,3 +1,0 @@
-/home/pi/ble_scan/ble_build/CMakeFiles/rebuild_cache.dir
-/home/pi/ble_scan/ble_build/CMakeFiles/ble_scan.dir
-/home/pi/ble_scan/ble_build/CMakeFiles/edit_cache.dir

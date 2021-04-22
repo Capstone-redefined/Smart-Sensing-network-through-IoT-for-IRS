@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/ble_scan/temp_ble
+# Install script for directory: /home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pi/ble_scan/temp_ble/temp_build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/temp_build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

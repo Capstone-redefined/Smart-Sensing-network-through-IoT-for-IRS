@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/ble_scan/temp_ble/temp_ble_scan.c
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/temp_ble_scan.c
 pthread.h
 -
 stdio.h
@@ -22,5 +22,5 @@ time.h
 string.h
 -
 gattlib.h
-/home/pi/ble_scan/temp_ble/gattlib.h
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/temp_ble/gattlib.h
 

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/gattlib_test/examples/ble_scan/ble_scan.c
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/ble_scan.c
 pthread.h
 -
 stdio.h
@@ -19,6 +19,8 @@ sys/queue.h
 -
 time.h
 -
+string.h
+-
 gattlib.h
-/home/pi/gattlib_test/examples/ble_scan/gattlib.h
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_scan/gattlib.h
 

@@ -100,11 +100,11 @@ void delay(int number_of_seconds)
 			//uint8_t* buffer = (uint8_t*) malloc(20);
 			float temp;
 			char first_string[5];
-			char second_string[11];
-			//for(unsigned int j =0; j!=50; ++j)
-			while(1)
+			char second_string[15];
+			for(unsigned int j =0; j!=50; ++j)
+			//while(1)
 			{
-			delay(1000);
+			//delay(1000);
 			//uint8_t* buffer = (uint8_t*) malloc(30);
 			uint8_t* buffer = NULL;	
 			ret = gattlib_read_char_by_uuid(gatt_connection, &characteristics[i].uuid, (void **)&buffer, &len);
@@ -120,16 +120,16 @@ void delay(int number_of_seconds)
                         	goto disconnect_exit;
 			
                 	}
-			printf("Read UUID completed: ");
+			//printf("Read UUID completed: ");
                 	// printf("Temperature in *C: ");
 			//int l = strlen(buffer);
 			//substring(buffer, first_string, 1, 4);
 
 			//substring(buffer, second_string, 5, len-4);
 			//temp = atof(second_string);
-                	//printf("\n%s", first_string);
+                        printf("%s", buffer);
 			//for (i = 0; i < len; ++i) 
-                         	printf(buffer);
+                         //	printf(buffer);
 			//printf("\nLength of buffer : %d\n", strlen(buffer)); 
 			//for( i = 0; i < len; ++i)
 			//printf("%c ", buffer);
@@ -137,7 +137,7 @@ void delay(int number_of_seconds)
                 	printf("\n");
 
                 	free(buffer);
-			delay(300);// 200 ms seconds delay
+			delay(50);// 200 ms seconds delay
 			}
 
 		}	

@@ -99,11 +99,17 @@ void delay(int number_of_seconds)
 			//uint8_t* buffer = (uint8_t*) malloc(20);
 			float temp;
 			char first_string[5];
-			char second_string[11];
+			char second_string[15];
+			FILE* fptr = fopen("temperature.txt", "a"); 
+			if (fptr == NULL)
+			{
+				printf("\nError!!");
+				exit(1);
+			}
 			for(unsigned int j =0; j!=50; ++j)
 			{
-			uint8_t* buffer = (uint8_t*) malloc(15);
-			//uint8_t* buffer = NULL;	
+			//uint8_t* buffer = (uint8_t*) malloc(15);
+			uint8_t* buffer = NULL;	
 			ret = gattlib_read_char_by_uuid(gatt_connection, &characteristics[i].uuid, (void **)&buffer, &len);
                 	if (ret != GATTLIB_SUCCESS) {
 
@@ -119,9 +125,9 @@ void delay(int number_of_seconds)
                 	}
 
                 	// printf("Temperature in *C: ");
-			int l = strlen(buffer);
+			//int l = strlen(buffer);
 			substring(buffer, first_string, 1, 4);
-			substring(buffer, second_string, 5, l-4);
+			substring(buffer, second_string, 5, len-4);
 			temp = atof(second_string);
                 	printf("%s", first_string);
 			//for (i = 0; i < strlen(second_string); ++i) 
@@ -131,11 +137,16 @@ void delay(int number_of_seconds)
 			//printf("%c ", buffer);
                 	//}
                 	printf("\n");
+			
+			if( strcmp(first_string, "Tem ") == 0)
+			{
+				fprintf(fptr, "%f\n", temp);
+			} 
 
                 	free(buffer);
-			delay(200);// 200 ms seconds delay
+			delay(150);// 150 ms seconds delay
 			}
-
+			fclose(fptr);
 		}	
 	}
 	free(characteristics);
