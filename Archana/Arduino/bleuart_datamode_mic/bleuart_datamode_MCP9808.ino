@@ -83,12 +83,12 @@ Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
 // Adafruit_BluefruitLE_UART ble(Serial1, BLUEFRUIT_UART_MODE_PIN);
 
 /* ...hardware SPI, using SCK/MOSI/MISO hardware SPI pins and then user selected CS/IRQ/RST */
-//Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
+Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 
 /* ...software SPI, using SCK/MOSI/MISO user-defined SPI pins and then user selected CS/IRQ/RST */
-Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_SCK, BLUEFRUIT_SPI_MISO,
-                             BLUEFRUIT_SPI_MOSI, BLUEFRUIT_SPI_CS,
-                             BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
+//Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_SCK, BLUEFRUIT_SPI_MISO,
+//                             BLUEFRUIT_SPI_MOSI, BLUEFRUIT_SPI_CS,
+//                             BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 
 
 // A small helper
@@ -245,23 +245,30 @@ void loop(void)
     delay(150);
 */
    /******************************************* AUDIO DATA *****************************************/
- // char inputs[15] = "Aud ";
 
-    char buffer[256];
-    char input[10];
-   // char str[11];
      queue1.begin();
   if (queue1.available() >= 1){
-
-      // Fetch 1 block from the audio library and copy
+    size_t pos=1;
+    size_t i=0;
+    char buffer[256];
+    char input[10];
+  // Fetch 1 block from the audio library and copy
   // into a 256 byte buffer.
     memcpy(buffer, queue1.readBuffer(), 256);
     queue1.freeBuffer();
-    strncpy(input, buffer, 9);
-    //substring(buffer, input, 1, 10);
-    //strcat(inputs, input);
-   // sprintf(str, "%s", input);
 
+    Serial.println(".................Reading an audio packet : 256 byte array.......");
+    for( size_t i = 0; i != 256; ++i){
+    Serial.print(buffer[i], HEX);
+    Serial.print(" ");
+    }
+    Serial.println();
+    
+
+    while( i!= 32) // 32*8 = 256
+    {
+      char inputs[BUFSIZE+1] = "A ";
+      substring(buffer, input, pos, 8);
     //declare output string with double size of input string
     //because each character of input string will be converted
     //in 2 bytes
@@ -269,30 +276,24 @@ void loop(void)
     Serial.print("Length of input : ");
     Serial.println(len);
     char hex_str[(len*2)+1];
-    
+  
     //converting ascii string to hex string
     string2hexString(input, hex_str);
-   // strcat(inputs, hex_str);
-   
-    Serial.println(".................Reading an audio packet : 256 byte array.......");
-    for( size_t i = 0; i != 256; ++i){
-      Serial.print(buffer[i], HEX);
-      Serial.print(" ");
+    strcat(inputs, hex_str);
+    
+    Serial.println(inputs);
+    ble.println(inputs);
+    delay(100);
+    //Serial.println(hex_str);
+    //ble.println(hex_str);
+      pos +=8;
+      ++i;
+      
     }
-    Serial.println();
 
-    //char abc[5];
-/*
-   // substring(inputs, abc, 1, 4);
-   // Serial.print(abc);
-    for(int i =0; i!= sizeof(input)-1; ++i){
-     Serial.print(input[i], HEX);
-     Serial.print(" ");
-    }
-    Serial.println();*/
-    Serial.println(hex_str);
-    ble.println(hex_str);
   }
-  delay(100);
+  else
+    Serial.println( "Data not available in queue!!");
+  //delay(100);
   
 }
