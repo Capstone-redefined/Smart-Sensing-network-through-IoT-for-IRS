@@ -1,0 +1,11 @@
+I2S to audio jack on Raspberry PI - Audio out from RPI
+https://elmwoodelectronics.ca/products/adafruit-i2s-stereo-decoder-uda1334a-breakout?variant=4923272921125&currency=CAD&gclid=Cj0KCQiA-aGCBhCwARIsAHDl5x8yRGCzMLSWc96yyMwyExpiJDw3-DdqJiDKJbmTRPGosl9QC2ZG5KIaAn20EALw_wcB
+Adafruit I2S Stereo Decoder - UDA1334A Breakout - Elmwood Electronics 
+
+buffer / inverter for door sensor to teensy - to make sure that the door sensor is not loaded
+
+Making power supply to the relay
+Cut out standard USB cable
+or
+https://elmwoodelectronics.ca/products/8376
+SparkFun Breadboard Power Supply USB - 5V/3.3V - Elmwood Electronics

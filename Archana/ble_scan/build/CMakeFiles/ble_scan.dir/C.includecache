@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/gattlib_test/examples/ble_scan/ble_scan.c
+pthread.h
+-
+stdio.h
+-
+stdint.h
+-
+stdlib.h
+-
+sys/queue.h
+-
+time.h
+-
+gattlib.h
+/home/pi/gattlib_test/examples/ble_scan/gattlib.h
+
