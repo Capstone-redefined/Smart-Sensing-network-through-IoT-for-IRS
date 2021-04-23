@@ -42,15 +42,16 @@
 // that use SPI (Bluefruit LE SPI Friend).
 // ----------------------------------------------------------------------------------------------
 #define BLUEFRUIT_SPI_CS               3
-#define BLUEFRUIT_SPI_IRQ              4
-#define BLUEFRUIT_SPI_RST              5    // Optional but recommended, set to -1 if unused
+#define BLUEFRUIT_SPI_IRQ              7
+#define BLUEFRUIT_SPI_RST              4    // Optional but recommended, set to -1 if unused
 
 // SOFTWARE SPI SETTINGS
 // ----------------------------------------------------------------------------------------------
 // The following macros declare the pins to use for SW SPI communication.
 // This should be used with nRF51822 based Bluefruit LE modules that use SPI
 // (Bluefruit LE SPI Friend).
-// ----------------------------------------------------------------------------------------------
-#define BLUEFRUIT_SPI_SCK              0
-#define BLUEFRUIT_SPI_MISO             1
-#define BLUEFRUIT_SPI_MOSI             2
+/* ----------------------------------------------------------------------------------------------
+#define BLUEFRUIT_SPI_SCK              13
+#define BLUEFRUIT_SPI_MISO             12
+#define BLUEFRUIT_SPI_MOSI             11
+*/
