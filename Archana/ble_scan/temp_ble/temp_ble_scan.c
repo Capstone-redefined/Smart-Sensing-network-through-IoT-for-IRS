@@ -144,7 +144,7 @@ void delay(int number_of_seconds)
 			} 
 
                 	free(buffer);
-			delay(150);// 150 ms seconds delay
+			delay(100);// 150 ms seconds delay
 			}
 			fclose(fptr);
 		}	

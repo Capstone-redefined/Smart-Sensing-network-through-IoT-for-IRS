@@ -101,13 +101,25 @@ void delay(int number_of_seconds)
 			float temp;
 			char first_string[5];
 			char second_string[15];
-			for(unsigned int j =0; j!=50; ++j)
+                        FILE* t_ptr = fopen("temperature.txt", "a"); 
+			FILE* a_ptr = fopen("audio.txt", "a");
+                        if ((t_ptr == NULL) || (a_ptr == NULL))
+                        {
+                                printf("\nError creating file!!");
+                                exit(1);
+                        }
+
+			for(unsigned int j =0; j!=100; ++j)
 			//while(1)
 			{
 			//delay(1000);
 			//uint8_t* buffer = (uint8_t*) malloc(30);
 			uint8_t* buffer = NULL;	
-			ret = gattlib_read_char_by_uuid(gatt_connection, &characteristics[i].uuid, (void **)&buffer, &len);
+//			do{
+				ret = gattlib_read_char_by_uuid(gatt_connection, &characteristics[i].uuid, (void **)&buffer, &len);
+				
+//			}while(buffer == NULL);
+
                 	if (ret != GATTLIB_SUCCESS) {
 
                        		 if (ret == GATTLIB_NOT_FOUND) {
@@ -123,11 +135,22 @@ void delay(int number_of_seconds)
 			//printf("Read UUID completed: ");
                 	// printf("Temperature in *C: ");
 			//int l = strlen(buffer);
-			//substring(buffer, first_string, 1, 4);
+			substring(buffer, first_string, 1, 2);
 
-			//substring(buffer, second_string, 5, len-4);
+			substring(buffer, second_string, 3, len-4);
 			//temp = atof(second_string);
-                        printf("%s", buffer);
+			if( strcmp(first_string, "T ") == 0)
+                        {
+                                 temp = atof(second_string);
+				 fprintf(t_ptr, "%f\n", temp);
+				 printf("%s", first_string);
+				 printf("%f", temp);
+                        } 
+			else if ( strcmp(first_string, "A ") == 0)
+			{
+                                 fprintf(a_ptr, "%s\n", second_string);
+	                         printf("%s", buffer);
+			}
 			//for (i = 0; i < len; ++i) 
                          //	printf(buffer);
 			//printf("\nLength of buffer : %d\n", strlen(buffer)); 
@@ -137,9 +160,10 @@ void delay(int number_of_seconds)
                 	printf("\n");
 
                 	free(buffer);
-			delay(50);// 200 ms seconds delay
+			delay(100);// 200 ms seconds delay
 			}
-
+			fclose(a_ptr);
+			fclose(t_ptr);
 		}	
 	}
 	free(characteristics);
