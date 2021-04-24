@@ -35,18 +35,22 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_4;
     QLCDNumber *lcdNumberHour;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_2;
+    QLabel *label_5;
 
     void setupUi(QDialog *Dialog)
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName(QString::fromUtf8("Dialog"));
-        Dialog->resize(443, 243);
+        Dialog->resize(443, 322);
         label = new QLabel(Dialog);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(396, 10, 41, 61));
+        label->setGeometry(QRect(400, 10, 41, 61));
         layoutWidget = new QWidget(Dialog);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 0, 391, 71));
+        layoutWidget->setGeometry(QRect(4, 0, 391, 71));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -99,7 +103,7 @@ public:
 
         layoutWidget_2 = new QWidget(Dialog);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(0, 80, 391, 71));
+        layoutWidget_2->setGeometry(QRect(4, 80, 391, 71));
         horizontalLayout_3 = new QHBoxLayout(layoutWidget_2);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -144,7 +148,7 @@ public:
 
         layoutWidget_3 = new QWidget(Dialog);
         layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
-        layoutWidget_3->setGeometry(QRect(0, 160, 391, 71));
+        layoutWidget_3->setGeometry(QRect(4, 160, 391, 71));
         horizontalLayout_4 = new QHBoxLayout(layoutWidget_3);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -155,9 +159,48 @@ public:
 
         lcdNumberHour = new QLCDNumber(layoutWidget_3);
         lcdNumberHour->setObjectName(QString::fromUtf8("lcdNumberHour"));
+        QPalette palette2;
+        palette2.setBrush(QPalette::Active, QPalette::WindowText, brush2);
+        palette2.setBrush(QPalette::Active, QPalette::Dark, brush2);
+        palette2.setBrush(QPalette::Active, QPalette::Text, brush2);
+        palette2.setBrush(QPalette::Active, QPalette::ButtonText, brush2);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::Active, QPalette::PlaceholderText, brush3);
+#endif
+        palette2.setBrush(QPalette::Inactive, QPalette::WindowText, brush2);
+        palette2.setBrush(QPalette::Inactive, QPalette::Dark, brush2);
+        palette2.setBrush(QPalette::Inactive, QPalette::Text, brush2);
+        palette2.setBrush(QPalette::Inactive, QPalette::ButtonText, brush2);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush3);
+#endif
+        palette2.setBrush(QPalette::Disabled, QPalette::WindowText, brush2);
+        palette2.setBrush(QPalette::Disabled, QPalette::Dark, brush2);
+        palette2.setBrush(QPalette::Disabled, QPalette::Text, brush2);
+        palette2.setBrush(QPalette::Disabled, QPalette::ButtonText, brush2);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush3);
+#endif
+        lcdNumberHour->setPalette(palette2);
         lcdNumberHour->setDigitCount(9);
 
         horizontalLayout_4->addWidget(lcdNumberHour);
+
+        widget = new QWidget(Dialog);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(0, 240, 391, 71));
+        horizontalLayout_2 = new QHBoxLayout(widget);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(widget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        horizontalLayout_2->addWidget(label_2);
+
+        label_5 = new QLabel(widget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        horizontalLayout_2->addWidget(label_5);
 
 
         retranslateUi(Dialog);
@@ -168,10 +211,12 @@ public:
     void retranslateUi(QDialog *Dialog)
     {
         Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", nullptr));
-        label->setText(QApplication::translate("Dialog", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#a40000;\">*C</span></p></body></html>", nullptr));
+        label->setText(QApplication::translate("Dialog", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#a40000; vertical-align:super;\">o</span><span style=\" font-size:22pt; font-weight:600; color:#a40000;\">C</span></p></body></html>", nullptr));
         tempLabel->setText(QApplication::translate("Dialog", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#000000;\">Current Temperature</span></p></body></html>", nullptr));
         label_3->setText(QApplication::translate("Dialog", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Persons in the zone</span></p></body></html>", nullptr));
-        label_4->setText(QApplication::translate("Dialog", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Today's Hours</span></p></body></html>", nullptr));
+        label_4->setText(QApplication::translate("Dialog", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Today's Hours</span></p></body></html>", nullptr));
+        label_2->setText(QApplication::translate("Dialog", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Motor's condition</span></p></body></html>", nullptr));
+        label_5->setText(QApplication::translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; color:#4e9a06;\">GOOD</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };
