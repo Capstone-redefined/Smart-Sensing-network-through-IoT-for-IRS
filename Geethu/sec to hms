@@ -1,0 +1,13 @@
+#include <cstdio>
+#include <iostream>
+using namespace std;
+int main ()
+{
+    int seconds, hours, minutes, sec;
+    cin >> seconds;
+    hours = seconds/3600;
+    minutes = seconds%(hours*60);
+    sec = (seconds%(hours*3600))-((seconds%(hours*60))*60);
+    cout << seconds << " seconds is equivalent to " << int(hours) << " hours " << int(minutes) 
+         << " minutes " << int(sec) << " seconds.";
+}
