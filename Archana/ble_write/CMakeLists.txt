@@ -28,5 +28,5 @@ pkg_search_module(PCRE REQUIRED libpcre)
 
 set(ble_write_SRCS ble_write.c)
 
-add_executable(ble_write ${ble_scan_SRCS})
+add_executable(ble_write ble_write.c)
 target_link_libraries(ble_write ${GATTLIB_LIBRARIES} ${GATTLIB_LDFLAGS} ${PCRE_LIBRARIES} pthread)

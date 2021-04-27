@@ -80,15 +80,15 @@ void delay(int number_of_seconds)
 	}
 	for (i = 0; i < characteristics_count; i++) {
 		gattlib_uuid_to_string(&characteristics[i].uuid, uuid_str, sizeof(uuid_str));
-		if(strcmp(uuid_str, "6e400003-b5a3-f393-e0a9-e50e24dcca9e") == 0)
+		if(strcmp(uuid_str, "6e400002-b5a3-f393-e0a9-e50e24dcca9e") == 0)
 		{
 
 			printf("characteristic[%d] properties:%02x value_handle:%04x uuid:%s\n", i,
 				characteristics[i].properties, characteristics[i].value_handle,
 				uuid_str);
 				
-				int value_data = 1;
-				
+				//long int value_data = strtol("A", NULL, 0);
+				char value_data = 'a';
 				ret = gattlib_write_char_by_uuid(gatt_connection, &characteristics[i].uuid, &value_data, sizeof(value_data));
 			if (ret != GATTLIB_SUCCESS) {
 
@@ -125,7 +125,7 @@ connection_exit:
 	} else {
 		printf("Discovered %s\n", addr);
 	}
-	if(strcmp(addr, "C2:87:6C:41:3C:E1") == 0)
+	if(strcmp(addr, "E7:BC:8B:41:05:F3") == 0)
 	{
 		connection = malloc(sizeof(struct connection_t));
 		if (connection == NULL) {
