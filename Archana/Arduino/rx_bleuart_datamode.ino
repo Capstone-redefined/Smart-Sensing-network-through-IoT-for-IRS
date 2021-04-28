@@ -91,8 +91,6 @@ bool lights_on = 0;
 bool door_closed = 1;
 const int DOOR_SENSOR_PIN =20; // teensy pin connected to door sensor's pin
 const int RELAY_PIN       =15;  // teensy pin connected to the IN pin of relay
-//const int RPI_SIGNAL_PIN  =17 ;  //teensy pin that recieve the signal from arduino
-//bool rpiState ;
 bool doorState;
 
 
@@ -147,27 +145,14 @@ void setup(void)
 
   ble.verbose(false);  // debug info is a little annoying after this point!
 
-  /* Wait for connection */
- /* while (! ble.isConnected()) {
-      delay(500);
+  doorState = digitalRead(DOOR_SENSOR_PIN); // read state
+  // wait until door gets closed
+  while(doorState)
+  { 
+      delay(100);
+      doorState = digitalRead(DOOR_SENSOR_PIN); // read state
   }
-
-  Serial.println(F("******************************"));
-
-  // LED Activity command is only supported from 0.6.6
-  if ( ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) )
-  {
-    // Change Mode LED Activity
-    Serial.println(F("Change LED activity to " MODE_LED_BEHAVIOUR));
-    ble.sendCommandCheckOK("AT+HWModeLED=" MODE_LED_BEHAVIOUR);
-  }
-
-  // Set module to DATA mode
-  Serial.println( F("Switching to DATA mode!") );
-  ble.setMode(BLUEFRUIT_MODE_DATA);
-
-  Serial.println(F("******************************"));
-  */
+  
 }
 
 /**************************************************************************/
@@ -178,8 +163,6 @@ void setup(void)
 void loop(void)
 {
 
-    //doorState = digitalRead(DOOR_SENSOR_PIN); // read state
-    //bool lights_on = 0;
     if(!lights_on)
     {
         doorState = digitalRead(DOOR_SENSOR_PIN); // read state
@@ -189,24 +172,22 @@ void loop(void)
           delay(100);
           doorState = digitalRead(DOOR_SENSOR_PIN); // read state
         }
-        if(doorState == HIGH)
-        {
+       // if(doorState == HIGH)
+       // {
               Serial.println("The door is open");
-              //door_closed = 0;
-              //delay(2000);
               // Turn ON lights
               digitalWrite(RELAY_PIN, HIGH);
               lights_on = 1;
               
-        }
+       // }
     }
     else
     {
         /* Wait for connection */
-      while (! ble.isConnected()) {
+      while (! ble.isConnected()) 
+      {
       delay(500);
       }
-
 
       // LED Activity command is only supported from 0.6.6
       if ( ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) )
@@ -227,69 +208,22 @@ void loop(void)
         Serial.print(c);
         if(c == 'a')
         {
+
+            // wait for the door to get closed
+            doorState = digitalRead(DOOR_SENSOR_PIN);
+            while(doorState)
+            { 
+                delay(100);
+                doorState = digitalRead(DOOR_SENSOR_PIN); // read state            
+            }
+            lights_on = 0;
+            
             // turn OFF lights
             delay(2000);
             digitalWrite(RELAY_PIN, LOW);
             Serial.println("switching off the light");
-            // wait for the door to get closed
-            delay(10000);
-            lights_on = 0;
-            //door_closed=1;
-    
+
         }
        
     }
 }
-
-
-
-/*
-  
-  doorState = digitalRead(DOOR_SENSOR_PIN); // read state
-  while(doorState == HIGH)
-  {
-    Serial.println("The door is open");
-    //delay(2000);
-    digitalWrite(RELAY_PIN, HIGH);
-   // rpiState = digitalRead(RPI_SIGNAL_PIN);
-    while(!ble.available())
-    {
-      delay(300);
-    }
-    goto label;
-  }
-    
-
-    label: 
-   {
-    if(ble.available())
-    {
-         char c = ble.read();
-         Serial.print(c);
-        if(c == 'a')
-        {
-            digitalWrite(RELAY_PIN, LOW);
-            Serial.println("switching off the light");
-            doorState=LOW;
-    //delay(2000);
-        }
-    }
-  
-   }
-
-     
-  // Echo received data
-  while ( ble.available() )
-  {
-    char c = ble.read();
-
-    Serial.print(c);
-    //Serial.print(c);
-
-    // Hex output too, helps w/debugging!
-    Serial.print(" [0x");
-    if (c <= 0xF) Serial.print(F("0"));
-    Serial.print(c, HEX);
-    Serial.print("] ");
-  */
-  
