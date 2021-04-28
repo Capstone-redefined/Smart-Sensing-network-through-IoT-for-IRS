@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_write/ble_write.c
+pthread.h
+-
+stdio.h
+-
+stdint.h
+-
+stdlib.h
+-
+sys/queue.h
+-
+time.h
+-
+assert.h
+-
+gattlib.h
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_write/gattlib.h
+
