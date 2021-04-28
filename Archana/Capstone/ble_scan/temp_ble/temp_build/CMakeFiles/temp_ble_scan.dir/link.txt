@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/temp_ble_scan.dir/temp_ble_scan.c.o  -o temp_ble_scan  -lgattlib -lglib-2.0 -lgattlib -lglib-2.0 -lpcre -lpthread 

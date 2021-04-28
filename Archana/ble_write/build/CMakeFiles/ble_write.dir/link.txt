@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/ble_write.dir/ble_write.c.o  -o ble_write  -lgattlib -lglib-2.0 -lgattlib -lglib-2.0 -lpcre -lpthread 

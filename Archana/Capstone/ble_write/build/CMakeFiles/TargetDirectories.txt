@@ -1,0 +1,3 @@
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_write/build/CMakeFiles/rebuild_cache.dir
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_write/build/CMakeFiles/ble_write.dir
+/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/ble_write/build/CMakeFiles/edit_cache.dir
