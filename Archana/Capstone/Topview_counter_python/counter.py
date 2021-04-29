@@ -15,6 +15,8 @@ count2 = 0
 N = 0
 if os.path.exists("N_people.txt"):
 	os.remove("N_people.txt") # delete any existing file
+if os.path.exists("N_1value.txt"):
+        os.remove("N_1value.txt") # delete any existing file
 
 def find_majority(k):
     myMap = {}
@@ -83,9 +85,12 @@ while 1:
     cv2.line(frame, (420, 0), (420,480), (0,255,0), 2)	
     N = count2 - count1
     #f.write("N: {}\n\n".format(N))
-    f = open("N_people.txt", "a");
+    f = open("N_people.txt", "a")
+    f1 = open("N_1value.txt", "w")
     f.write("{}\n".format(N))
+    f1.write("{}\n".format(N))
     f.close() 
+    f1.close()
     cv2.putText(frame, "Out: {}".format(count1), (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
     cv2.putText(frame, "In: {}".format(count2), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
     #f.write("In: {}\n".format(count1))

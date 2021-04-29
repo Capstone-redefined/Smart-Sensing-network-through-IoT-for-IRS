@@ -1,12 +1,13 @@
 #include <iostream>
 #include <fstream>
 #include <chrono>
-#
-
+#include <stdio.h>
+#include <unistd.h>
 //using namespace cv;
 using namespace std;
 
 // global variables
+    unsigned int second = 1000000;
     int Lcount = 0;
     bool timer_on = false;
     double total_time_in_s = 0; 
@@ -16,16 +17,25 @@ using namespace std;
 
 int main(int argc, char **argv) {
         	// files to read data 
-		string filename = "N_people.txt";
+		string filename = "N_1value.txt";
 		ifstream fin;
-		fin.open(filename);
+                int N;
+                int i;
+		if ( remove("T_hours.txt") !=0 )
+			perror("Error deleting T_hours.txt!!");
+		else
+			puts("T_hours.txt successfully deleted");
 
-		int N;
-		int i;
+                //while(1)
+		for(i=0; i<65; ++i)
+                {
+
+		fin.open(filename);
+		
+
 		if(fin.is_open()){
-			//for(i=0; i<50; ++i)
-			while(1)
-			{
+			//
+/*
  			//Got to the last character before EOF
     			fin.seekg(-1, std::ios_base::end);
     			if(fin.peek() == '\n')
@@ -45,7 +55,9 @@ int main(int argc, char **argv) {
         				fin.seekg(i, std::ios_base::beg);
       				}
     			}
-    			fin >> N;
+
+  */  			fin >> N;
+			fin.close();
     			std::cout << endl << "Current No. of people in the zone : " << N << std::endl;
     			/*
     			Navg += N;
@@ -57,7 +69,7 @@ int main(int argc, char **argv) {
 
             		} 
             		*/          
-            		if (N > 0)  // N was >=1 successively for 5 reads
+            		if (N > 0)  
             		{
                 		if( !timer_on)
                 		{
@@ -67,7 +79,7 @@ int main(int argc, char **argv) {
                         		cout << "\n...........Turning on Timer!.........";
                 		}
             		}
-            		else if (N == 0) // N was '0' successively for 5 reads
+            		else if (N == 0) 
             		{
                 		if(timer_on)
                 		{
@@ -78,20 +90,23 @@ int main(int argc, char **argv) {
                         		std::cout << "elapsed time: " << elapsed_seconds.count();
                         		total_time_in_s += elapsed_seconds.count();
                         		//Tfile.open();
-                        		ofstream T_file("T_hours.txt");
+                        		ofstream T_file;
+					T_file.open("T_hours.txt", std::ios_base::app);
                         		T_file << total_time_in_s << endl;
                         		T_file.close();
                         		timer_on = false;
+					system("./ble_write");
                 		}
 	    		}
-	    		}// end of infinite loop
-			fin.close();
-    		}
+	    	}
 		else
 		{
 			cout << "\nError: file could not be opened!!";
 			exit(1);
 		}
+		
+		usleep(0.5*second);	
+    		}
 		
 		
 		return 0;

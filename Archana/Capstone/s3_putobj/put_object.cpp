@@ -78,13 +78,13 @@ bool AwsDoc::S3::PutObject(const Aws::String& bucketName,
     }
 }
 
-int main()
+int main(int argc, char* argv[])
 {
     Aws::SDKOptions options;
     Aws::InitAPI(options);
     {
         const Aws::String bucket_name = "temptesting01";
-        const Aws::String object_name = "temperature.txt";
+        const Aws::String object_name = argv[1];
         const Aws::String region = "us-east-2";
 
         if (!AwsDoc::S3::PutObject(bucket_name, object_name, region)) {

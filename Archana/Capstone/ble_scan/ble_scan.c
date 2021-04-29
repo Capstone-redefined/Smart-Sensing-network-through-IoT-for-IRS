@@ -101,24 +101,20 @@ void delay(int number_of_seconds)
 			float temp;
 			char first_string[5];
 			char second_string[15];
-                        FILE* t_ptr = fopen("temperature.txt", "a"); 
-			FILE* a_ptr = fopen("audio.txt", "a");
-                        if ((t_ptr == NULL) || (a_ptr == NULL))
-                        {
-                                printf("\nError creating file!!");
-                                exit(1);
-                        }
+                         
 
-			for(unsigned int j =0; j!=100; ++j)
+
+			//for(unsigned int j =0; j!=100; ++j)
 			//while(1)
-			{
+			//{
+
 			//delay(1000);
 			//uint8_t* buffer = (uint8_t*) malloc(30);
 			uint8_t* buffer = NULL;	
-//			do{
+			do{
 				ret = gattlib_read_char_by_uuid(gatt_connection, &characteristics[i].uuid, (void **)&buffer, &len);
 				
-//			}while(buffer == NULL);
+			}while(buffer[0] == '\0');
 
                 	if (ret != GATTLIB_SUCCESS) {
 
@@ -138,6 +134,13 @@ void delay(int number_of_seconds)
 			substring(buffer, first_string, 1, 2);
 
 			substring(buffer, second_string, 3, len-4);
+			FILE* t_ptr = fopen("temperature.txt", "a");
+			FILE* a_ptr = fopen("audio.txt", "a");
+                        if ((t_ptr == NULL) || (a_ptr == NULL))
+                        {
+                                printf("\nError creating file!!");
+                                exit(1);
+                        }
 			//temp = atof(second_string);
 			if( strcmp(first_string, "T ") == 0)
                         {
@@ -149,8 +152,10 @@ void delay(int number_of_seconds)
 			else if ( strcmp(first_string, "A ") == 0)
 			{
                                  fprintf(a_ptr, "%s\n", second_string);
-	                         printf("%s", buffer);
+	                         //printf("%s", buffer);
 			}
+			fclose(a_ptr);
+			fclose(t_ptr);
 			//for (i = 0; i < len; ++i) 
                          //	printf(buffer);
 			//printf("\nLength of buffer : %d\n", strlen(buffer)); 
@@ -161,9 +166,8 @@ void delay(int number_of_seconds)
 
                 	free(buffer);
 			delay(100);// 200 ms seconds delay
-			}
-			fclose(a_ptr);
-			fclose(t_ptr);
+			
+			//}
 		}	
 	}
 	free(characteristics);
@@ -206,6 +210,7 @@ connection_exit:
 }
 
 int main(int argc, const char *argv[]) {
+	remove("temperature.txt");
 	const char* adapter_name;
 	void* adapter;
 	int ret;
@@ -218,7 +223,8 @@ int main(int argc, const char *argv[]) {
 		fprintf(stderr, "%s [<bluetooth-adapter>]\n", argv[0]);
 		return 1;
 	}
-
+	for(int i=0; i< 50; ++i)
+	{
 	LIST_INIT(&g_ble_connections);
 
 	ret = gattlib_adapter_open(adapter_name, &adapter);
@@ -251,4 +257,8 @@ int main(int argc, const char *argv[]) {
 EXIT:
 	gattlib_adapter_close(adapter);
 	return ret;
+	
+	delay(200);
+	} // end of foor loop
+
 }
