@@ -8,6 +8,7 @@ using namespace std;
 
 // global variables
     unsigned int second = 1000000;
+    int hours, minutes, seconds;
     int Lcount = 0;
     bool timer_on = false;
     double total_time_in_s = 0; 
@@ -15,6 +16,16 @@ using namespace std;
     std::chrono::steady_clock::time_point Tstart;
     std::chrono::steady_clock::time_point Tend;
 
+void convertSecToHours()
+{
+	// int seconds, hours, minutes;
+	
+	minutes = seconds / 60;
+	hours = (int) minutes / 60;
+	minutes = int(minutes%60);
+	seconds = int(seconds%60);
+
+}
 int main(int argc, char **argv) {
         	// files to read data 
 		string filename = "N_1value.txt";
@@ -88,11 +99,12 @@ int main(int argc, char **argv) {
                         		std::chrono::duration<double> elapsed_seconds = Tend-Tstart;
 
                         		std::cout << "elapsed time: " << elapsed_seconds.count();
-                        		total_time_in_s += elapsed_seconds.count();
+                        		seconds += elapsed_seconds.count();
+					convertSecToHours();
                         		//Tfile.open();
                         		ofstream T_file;
 					T_file.open("T_hours.txt", std::ios_base::app);
-                        		T_file << total_time_in_s << endl;
+                        		T_file << hours <<":" <<  minutes << ":" << seconds << endl;
                         		T_file.close();
                         		timer_on = false;
 					system("./ble_write");
