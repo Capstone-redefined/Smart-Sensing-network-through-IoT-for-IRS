@@ -13,9 +13,9 @@ motion = list()
 count1 = 0
 count2 = 0
 N = 0
-if os.path.exists("N_people.txt"):
-	os.remove("N_people.txt") # delete any existing file
-f = open("N_people.txt", "a");
+if os.path.exists("../N_people.txt"):
+	os.remove("../N_people.txt") # delete any existing file
+f = open("../N_people.txt", "a");
 def find_majority(k):
     myMap = {}
     maximum = ( '', 0 ) # (occurring element, occurrences)
