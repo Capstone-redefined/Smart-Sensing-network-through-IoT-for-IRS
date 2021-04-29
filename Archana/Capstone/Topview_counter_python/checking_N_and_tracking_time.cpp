@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 		string filename = "N_people.txt";
 		ifstream fin;
 		fin.open(filename);
-		ofstream T_file("T_hours.txt");
+
 		int N;
 		int i;
 		if(fin.is_open()){
@@ -78,12 +78,14 @@ int main(int argc, char **argv) {
                         		std::cout << "elapsed time: " << elapsed_seconds.count();
                         		total_time_in_s += elapsed_seconds.count();
                         		//Tfile.open();
+                        		ofstream T_file("T_hours.txt");
                         		T_file << total_time_in_s << endl;
-                        		//Tfile.close();
+                        		T_file.close();
                         		timer_on = false;
                 		}
 	    		}
 	    		}// end of infinite loop
+			fin.close();
     		}
 		else
 		{
@@ -91,7 +93,7 @@ int main(int argc, char **argv) {
 			exit(1);
 		}
 		
-		fin.close();
+		
 		return 0;
 	}
 	

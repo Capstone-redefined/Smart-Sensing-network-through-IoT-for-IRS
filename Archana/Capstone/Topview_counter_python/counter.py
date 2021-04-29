@@ -13,9 +13,9 @@ motion = list()
 count1 = 0
 count2 = 0
 N = 0
-if os.path.exists("../N_people.txt"):
-	os.remove("../N_people.txt") # delete any existing file
-f = open("../N_people.txt", "a");
+if os.path.exists("N_people.txt"):
+	os.remove("N_people.txt") # delete any existing file
+
 def find_majority(k):
     myMap = {}
     maximum = ( '', 0 ) # (occurring element, occurrences)
@@ -83,7 +83,9 @@ while 1:
     cv2.line(frame, (420, 0), (420,480), (0,255,0), 2)	
     N = count2 - count1
     #f.write("N: {}\n\n".format(N))
+    f = open("N_people.txt", "a");
     f.write("{}\n".format(N))
+    f.close() 
     cv2.putText(frame, "Out: {}".format(count1), (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
     cv2.putText(frame, "In: {}".format(count2), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
     #f.write("In: {}\n".format(count1))
@@ -97,6 +99,6 @@ while 1:
     if key == ord('q'):
         break
 
-f.close()    
+   
 video.release()
 cv2.destroyAllWindows()
