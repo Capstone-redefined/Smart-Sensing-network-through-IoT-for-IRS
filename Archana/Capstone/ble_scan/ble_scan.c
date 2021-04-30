@@ -146,7 +146,7 @@ void delay(int number_of_seconds)
                         {
                                  temp = atof(second_string);
 				 fprintf(t_ptr, "%f\n", temp);
-				 printf("%s", first_string);
+				 printf("Current temperature in the zone: ");
 				 printf("%f", temp);
                         } 
 			else if ( strcmp(first_string, "A ") == 0)

@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/Capstone/s3_putobj
-BuildDirectory: /home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/Capstone/s3_putobj/build
+SourceDirectory: /home/pi/s3_putobj
+BuildDirectory: /home/pi/s3_putobj/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/pi/Smart-Sensing-network-through-IoT-for-IRS/Archana/Capstone/s3_putobj"
+ConfigureCommand: "/usr/bin/cmake" "/home/pi/s3_putobj"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

@@ -34,7 +34,7 @@ bool AwsDoc::S3::PutObject(const Aws::String& bucketName,
 
     if (stat(objectName.c_str(), &buffer) == -1)
     {
-        std::cout << "Error: PutObject: File '" <<
+        std::cout << "\nError: PutObject: File '" <<
             objectName << "' does not exist." << std::endl;
 
         return false;
@@ -65,7 +65,7 @@ bool AwsDoc::S3::PutObject(const Aws::String& bucketName,
 
     if (outcome.IsSuccess()) {
 
-        std::cout << "Added object '" << objectName << "' to bucket '"
+        std::cout << "\nAdded object '" << objectName << "' to bucket '"
             << bucketName << "'.";
         return true;
     }
