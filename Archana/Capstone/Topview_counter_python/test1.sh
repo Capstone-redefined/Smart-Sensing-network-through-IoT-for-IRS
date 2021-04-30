@@ -9,6 +9,8 @@ wait
 ./run_put_object "temperature.txt"
 ./run_put_object "T_hours.txt"
 ./run_put_object "N_people.txt"
+printf "\nTime : "
+date +"%H:%M:%S"
 
 cp "temperature.txt" ~/Smart-Sensing-network-through-IoT-for-IRS/Vaibhav/build-QtTry2-Desktop-Debug/tempdata.txt
 cp "T_hours.txt" ~/Smart-Sensing-network-through-IoT-for-IRS/Vaibhav/build-QtTry2-Desktop-Debug/hours.txt
