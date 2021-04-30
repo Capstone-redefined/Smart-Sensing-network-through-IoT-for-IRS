@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
 			puts("T_hours.txt successfully deleted");
 
                 //while(1)
-		for(i=0; i<65; ++i)
+		for(i=0; i<55; ++i)
                 {
 
 		fin.open(filename);
