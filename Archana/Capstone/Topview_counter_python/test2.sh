@@ -17,13 +17,14 @@ do
 	git add .
 	git commit -m "............Adding all data files to git.............."
 	git push
-	sleep 5
+	#sleep 5
 done &
 
 wait
 ./run_put_object "temperature.txt"
 ./run_put_object "T_hours.txt"
 ./run_put_object "N_people.txt"
+echo "\nTime : "
 date +"%H:%M:%S"
 
 exit 0
